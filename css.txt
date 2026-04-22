@@ -1,0 +1,102 @@
+
+:root {
+    --primary: #d32f2f; /* أحمر */
+    --dark: #1a1a1a;    /* أسود */
+    --light: #ffffff;   /* أبيض */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+/* القائمة العلوية */
+nav {
+    background: var(--dark);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo { color: var(--light); font-weight: bold; font-size: 1.5rem; }
+.logo span { color: var(--primary); }
+
+nav ul { display: flex; list-style: none; }
+nav ul li a { color: var(--light); margin-right: 20px; text-decoration: none; transition: 0.3s; }
+nav ul li a:hover { color: var(--primary); }
+
+/* الواجهة الرئيسية */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('hero-bg.jpg');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--light);
+    text-align: center;
+}
+
+.btn-main {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: transform 0.3s;
+}
+.btn-main:hover { transform: scale(1.1); }
+
+/* قسم البلاغات */
+.report-section {
+    background: var(--dark);
+    color: white;
+    padding: 50px 0;
+}
+
+#reportForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+
+#reportForm input, #reportForm textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-report {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* روبوت الدردشة */
+.chat-bot {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 250px;
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.chat-header { background: var(--primary); color: white; padding: 10px; text-align: center; }
+.chat-body { height: 150px; padding: 10px; overflow-y: auto; font-size: 0.9rem; }
+#chatInput { width: 100%; border: none; border-top: 1px solid #ddd; padding: 10px; box-sizing: border-box; }

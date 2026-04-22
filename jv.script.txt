@@ -1,0 +1,34 @@
+// تأثير التمرير السلس
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// محاكاة بسيطة للروبوت
+const chatInput = document.getElementById('chatInput');
+const chatBody = document.getElementById('chatBody');
+
+chatInput.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        let userText = chatInput.value;
+        chatBody.innerHTML += <p style="color:red"><b>أنت:</b> ${userText}</p>;
+        
+        setTimeout(() => {
+            chatBody.innerHTML += <p><b>المساعد:</b> المعلبات تحتوي على نسب عالية من الصوديوم، أنصحك بالبدائل الطازجة!</p>;
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }, 1000);
+        
+        chatInput.value = '';
+    }
+});
+
+// تنبيه عند إرسال بلاغ
+document.getElementById('reportForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('شكراً لتعاونك! تم استلام بلاغك وسنقوم بمراجعته فوراً.');
+    this.reset();
+});
